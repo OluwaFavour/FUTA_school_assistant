@@ -84,10 +84,17 @@ class OpenAIClient:
             retry_count += 1
 
     def ask_question(self, messages: list[dict[str, str]]) -> str:
+        prompt_messages = [
+            {
+                "role": "system",
+                "content": "You are a chatbot that answers factual questions related to the School of Computing at FUTA only, other questions should not be answered.",
+            }
+        ]
+        prompt_messages.extend(messages)
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
-                messages=messages,
+                messages=prompt_messages,
                 max_tokens=self.max_tokens,
             )
             return response.choices[0].message.content
