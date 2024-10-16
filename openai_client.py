@@ -50,7 +50,7 @@ class OpenAIClient:
     def ask_admission_question(self, messages: list[dict[str, str]]) -> str:
         prompt_messages = self._create_prompt(
             role="system",
-            content="You are a chatbot that answers factual questions related to the Federal University of Technology Akure Admission Enquiry only, other questions should not be answered.",
+            content="You are a chatbot that only answers factual questions related to enquries on admission into Federal University of Technology, Akure (FUTA). Other questions should not be answered.",
             messages=messages,
         )
         return self._get_response(model=self.admission_model, messages=prompt_messages)
