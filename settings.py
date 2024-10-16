@@ -26,13 +26,15 @@ SQLALCHEMY_DATABASE_URL = env.database_url
 # OpenAI Settings
 OPENAI_KEY = env.openai_key
 OPENAI_MAX_TOKENS = env.openai_max_tokens
-OPENAI_MODEL = env.openai_model
+OPENAI_SOC_MODEL = env.openai_soc_model
+OPENAI_ADMISSION_MODEL = env.openai_admission_model
 OPENAI_ORGANIZATION_ID = env.openai_organization_id
 OPENAI_PROJECT_ID = env.openai_project_id
 OPENAI_CLIENT = OpenAIClient(
     api_key=OPENAI_KEY,
     organization=OPENAI_ORGANIZATION_ID,
     project=OPENAI_PROJECT_ID,
-    model=OPENAI_MODEL,
+    soc_model=OPENAI_SOC_MODEL,
+    admission_model=OPENAI_ADMISSION_MODEL,
     max_tokens=OPENAI_MAX_TOKENS,
 )

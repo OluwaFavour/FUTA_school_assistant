@@ -12,7 +12,8 @@ class EnvSettings(BaseSettings):
     debug: bool = True
     openai_key: str
     openai_max_tokens: int = 1000
-    openai_model: str
+    openai_soc_model: str
+    openai_admission_model: str
     openai_organization_id: str
     openai_project_id: str
     session_expire_days: int = 7
